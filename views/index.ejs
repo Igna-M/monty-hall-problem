@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Monty Hall</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    
+    <link rel="stylesheet"
+    href='https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap'>
+    
+
+  </head>
+  <body class="App">
+
+    <div class="title"><h1>Wellcome to Monty Hall</h1></div>
+
+
+    <div class="result-messages-container">
+
+      <div class="hide billboard win" id="youWin">
+        <h1>You Win</h1>
+      </div>
+      <div class="hide billboard lose" id="youLose">
+        <h1>You Lose</h1>
+      </div>
+      
+      <div class="round-result hide" id="round-result">
+        <p id="round-result-l1"></p>
+        <p id="round-result-l2"></p>
+      </div>
+
+    </div>
+
+
+    <section class="">
+
+
+      <div class="doors-container" id="doors">
+        <div class="door doorSkl" id="door1">
+          <p class="door-number">1</p>
+          <br>
+        </div>
+        <div class="door doorSkl" id="door2">
+          <p class="door-number">2</p>
+          <br>
+        </div>
+        <div class="door doorSkl" id="door3">
+          <p class="door-number">3</p>
+          <br>
+        </div>
+      </div>
+
+
+      <div class="letreros">
+        <div class="gameStatus">
+          <p>Game Status</p>
+          <div class="status-messages">
+            <button class="button-status" id="reset0">Empezar otra vez</button>
+          </div>
+          <div class="status-messages">
+            <button class="button-status" id="jugarDeNuevo">Seguir jugando</button>
+          </div>
+        </div>
+        <div class="messages">
+          <p class="messagesMessage" id="messagesMessage">Detrás de una de las puertas está tu premio. ¿Cuál?</p>
+          <div class="ajax-messages">
+            <p id="insertMessage"></p>
+            <p id="insertMessage2"></p>
+            <p id="insertMessage3"></p>
+          </div>
+        </div>
+        <div class="gameScore">
+          <p>Score</p>
+          <div class="scores">
+            <p>Jugados: </p>
+            <p id="played" class="scoreNumber"> </p>
+          </div>
+          <div class="scores">
+            <p>Ganados: </p>
+            <p id="won" class="scoreNumber"> </p>
+          </div>
+          <div class="scores">
+            <p>Perdidos: </p>
+            <p id="lost" class="scoreNumber"> </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br>
+
+    <script src="/javascripts/monty.js" type="module" ></script>
+  </body>
+</html>
