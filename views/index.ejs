@@ -11,21 +11,25 @@
   </head>
   <body class="App">
 
-    <div class="title"><h1>Wellcome to Monty Hall</h1></div>
+    <div class="title"><h1>Bienvenido a 'Hagamos un trato'</h1></div>
 
 
     <div class="result-messages-container">
 
       <div class="hide billboard win" id="youWin">
-        <h1>You Win</h1>
+        <h1>Ganaste</h1>
       </div>
       <div class="hide billboard lose" id="youLose">
-        <h1>You Lose</h1>
+        <h1>Perdiste</h1>
       </div>
       
       <div class="round-result hide" id="round-result">
         <p id="round-result-l1"></p>
         <p id="round-result-l2"></p>
+      </div>
+
+      <div class="status-messages">
+        <button class="button-status hide" id="jugarDeNuevo">Seguir jugando</button>
       </div>
 
     </div>
@@ -51,15 +55,12 @@
 
 
       <div class="letreros">
-        <div class="gameStatus">
+        <!-- <div class="gameStatus">
           <p>Game Status</p>
-          <div class="status-messages">
-            <button class="button-status" id="reset0">Empezar otra vez</button>
-          </div>
           <div class="status-messages">
             <button class="button-status" id="jugarDeNuevo">Seguir jugando</button>
           </div>
-        </div>
+        </div> -->
         <div class="messages">
           <p class="messagesMessage" id="messagesMessage">Detrás de una de las puertas está tu premio. ¿Cuál?</p>
           <div class="ajax-messages">
@@ -69,7 +70,7 @@
           </div>
         </div>
         <div class="gameScore">
-          <p>Score</p>
+          <h3>Score</h3>
           <div class="scores">
             <p>Jugados: </p>
             <p id="played" class="scoreNumber"> </p>

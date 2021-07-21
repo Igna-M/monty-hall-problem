@@ -30,6 +30,7 @@ let scores = {
     loses: 0
 }
 
+
 let door1 = document.getElementById("door1")
 let door2 = document.getElementById("door2")
 let door3 = document.getElementById("door3")
@@ -45,55 +46,69 @@ let roundResult = document.getElementById("round-result")
 let played = document.getElementById("played")
 let won = document.getElementById("won")
 let lost = document.getElementById("lost")
-let reset0 = document.getElementById("reset0")
 let jugarDeNuevo = document.getElementById("jugarDeNuevo")
 
 
+
+
+function removeDoorsListeners(){
+    door1.removeEventListener('click', firstChoiceDoor1);
+    door2.removeEventListener('click', firstChoiceDoor2);
+    door3.removeEventListener('click', firstChoiceDoor3);
+}
+
+
+function firstChoiceDoor1(){
+    if (gameStatus.fase == 'start'){
+        door1.classList.remove("door")
+        door1.classList.add("door-selected")
+        gameStatus.firstChoice = 1
+        messagesMessage.innerHTML = message.door1
+        gameStatus.fase = 'firstChoice'
+        removeDoorsListeners();
+        firstChoice();
+        }
+}
+
+function firstChoiceDoor2(){
+    if (gameStatus.fase == 'start'){
+        door2.classList.remove("door")
+        door2.classList.add("door-selected")
+        gameStatus.firstChoice = 2
+        gameStatus.fase = 'firstChoice'
+        removeDoorsListeners();
+        firstChoice();
+        }
+}
+
+function firstChoiceDoor3(){
+    if (gameStatus.fase == 'start'){
+        door3.classList.remove("door")
+        door3.classList.add("door-selected")
+        gameStatus.firstChoice = 3
+        gameStatus.fase = 'firstChoice'
+        removeDoorsListeners();
+        firstChoice();
+        }
+}
+
+
 // Parte Inicial
-let start = function () {
+function start() {
     messagesMessage.innerHTML = message.initial
     played.innerHTML = scores.plays
     won.innerHTML = scores.wins
     lost.innerHTML = scores.loses
     
-    door1.addEventListener('click', function(){
-        if (gameStatus.fase == 'start'){
-            door1.classList.remove("door")
-            door1.classList.add("door-selected")
-            gameStatus.firstChoice = 1
-            messagesMessage.innerHTML = message.door1
-            gameStatus.fase = 'firstChoice'
-            firstChoice();
-            }
-    })
-
-    door2.addEventListener('click', function(){
-        if (gameStatus.fase == 'start'){
-            door2.classList.remove("door")
-            door2.classList.add("door-selected")
-            gameStatus.firstChoice = 2
-            gameStatus.fase = 'firstChoice'
-            firstChoice();
-        }
-    })
-
-    door3.addEventListener('click', function(){
-        if (gameStatus.fase == 'start'){
-            door3.classList.remove("door")
-            door3.classList.add("door-selected")
-            gameStatus.firstChoice = 3
-            gameStatus.fase = 'firstChoice'
-            firstChoice();
-        }
-    })
+    door1.addEventListener('click', firstChoiceDoor1)
+    door2.addEventListener('click', firstChoiceDoor2)
+    door3.addEventListener('click', firstChoiceDoor3)
 }
-
-
 
 // Segunda parte
 let firstChoice = () => {
     insertMessage.innerHTML = message.show
-
+    
     if (gameStatus.firstChoice == 1){
         if (gameStatus.prizeDoor == 1){
             let bool = game.randomBool()
@@ -102,6 +117,9 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 3'
                 door2.classList.remove("door")
                 door2.classList.add("empty-door")
+                
+                // door2.classList = "hide"
+                
                 gameStatus.showDoor = 2;
                 return secondChoice();
             } else if (bool == 2){
@@ -109,6 +127,9 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 2'
                 door3.classList.remove("door")
                 door3.classList.add("empty-door")
+
+                // door3.classList = "hide"
+                
                 gameStatus.showDoor = 3
                 return secondChoice();
             } 
@@ -118,6 +139,9 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 2'
                 door3.classList.remove("door")
                 door3.classList.add("empty-door")
+                
+                // door3.classList = "hide"
+
                 gameStatus.showDoor = 3
                 return secondChoice();
             } else if (gameStatus.prizeDoor == 3){
@@ -125,6 +149,9 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 3'
                 door2.classList.remove("door")
                 door2.classList.add("empty-door")
+
+                // door2.classList = "hide"
+
                 gameStatus.showDoor = 2
                 return secondChoice();
             }
@@ -138,6 +165,8 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 2 y 3'
                 door1.classList.remove("door")
                 door1.classList.add("empty-door")
+
+                // door1.classList = "hide"
                 gameStatus.showDoor = 1
                 secondChoice()
             } else if (bool == 2){
@@ -145,6 +174,8 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 2'
                 door3.classList.remove("door")
                 door3.classList.add("empty-door")
+
+                // door3.classList = "hide"
                 gameStatus.showDoor = 3
                 secondChoice()
             } 
@@ -154,6 +185,8 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 2'
                 door3.classList.remove("door")
                 door3.classList.add("empty-door")
+
+                // door3.classList = "hide"
                 gameStatus.showDoor = 3
                 secondChoice()
             } else if (gameStatus.prizeDoor == 3){
@@ -161,6 +194,8 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 2 y 3'
                 door1.classList.remove("door")
                 door1.classList.add("empty-door")
+
+                // door1.classList = "hide"
                 gameStatus.showDoor = 1
                 secondChoice()
             }
@@ -174,12 +209,16 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 2 y 3'
                 door1.classList.remove("door")
                 door1.classList.add("empty-door")
+
+                // door1.classList = "hide"
                 gameStatus.showDoor = 1
             } else if (bool == 2){
                 insertMessage2.innerHTML = message.show2
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 3'
                 door2.classList.remove("door")
                 door2.classList.add("empty-door")
+
+                // door2.classList = "hide"
                 gameStatus.showDoor = 2
                 secondChoice()
             } 
@@ -189,6 +228,8 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 3'
                 door2.classList.remove("door")
                 door2.classList.add("empty-door")
+
+                // door2.classList = "hide"
                 gameStatus.showDoor = 2
                 secondChoice()
             } else if (gameStatus.prizeDoor == 2){
@@ -196,6 +237,8 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 2 y 3'
                 door1.classList.remove("door")
                 door1.classList.add("empty-door")
+
+                // door1.classList = "hide"
                 gameStatus.showDoor = 1
                 secondChoice()
             }
@@ -204,53 +247,47 @@ let firstChoice = () => {
 }
 
 
+function removeDoorsListeners2(){
+    door1.removeEventListener('click', secondChoice1);
+    door2.removeEventListener('click', secondChoice2);
+    door3.removeEventListener('click', secondChoice3);
+}
 
+
+function secondChoice1(){
+    if (gameStatus.fase == 'firstChoice') {
+        gameStatus.secondChoice = 1
+        removeDoorsListeners2()
+        result()
+    }
+}
+
+function secondChoice2(){
+    if (gameStatus.fase == 'firstChoice') {
+        gameStatus.secondChoice = 2
+        removeDoorsListeners2()
+        result()
+    }
+}
+
+function secondChoice3(){
+    if (gameStatus.fase == 'firstChoice') {
+        gameStatus.secondChoice = 3
+        removeDoorsListeners2()
+        result()
+    }
+}
 
 let secondChoice = () => {
     if (gameStatus.showDoor == 1) {
-        door2.addEventListener('click', function(){
-            if (gameStatus.fase == 'firstChoice') {
-                gameStatus.secondChoice = 2
-                return result()
-            }
-        })
-        door3.addEventListener('click', function(){            
-            if (gameStatus.fase == 'firstChoice') {
-                gameStatus.secondChoice = 3
-                return result()
-            }
-        });
-
-
-
-        
+        door2.addEventListener('click', secondChoice2)
+        door3.addEventListener('click', secondChoice3)
     } else if (gameStatus.showDoor == 2){
-            door1.addEventListener('click', function(){
-                if (gameStatus.fase == 'firstChoice') {
-                    gameStatus.secondChoice = 1
-                    return result()
-                }
-            })
-            door3.addEventListener('click', function(){
-                if (gameStatus.fase == 'firstChoice') {
-                    gameStatus.secondChoice = 3
-                    return result()
-                }
-            })
-
+        door1.addEventListener('click', secondChoice1)
+        door3.addEventListener('click', secondChoice3)
     } else if (gameStatus.showDoor == 3){
-            door1.addEventListener('click', function(){
-                if (gameStatus.fase == 'firstChoice') {
-                    gameStatus.secondChoice = 1
-                    return result()
-                }
-            })
-            door2.addEventListener('click', function(){
-                if (gameStatus.fase == 'firstChoice') {
-                    gameStatus.secondChoice = 2
-                    return result()
-                }
-            })
+        door1.addEventListener('click', secondChoice1)
+        door2.addEventListener('click', secondChoice2)
     }
 }
 
@@ -323,25 +360,43 @@ let reset = function(){
     won.innerHTML = scores.wins
     lost.innerHTML = scores.loses
 
-
-
-    reset0.addEventListener('click', function(){
-        console.log('RESET');
-    })
-
-    jugarDeNuevo.addEventListener('click', function(){
-        console.log('JUGAR DE NUEVO');
-    })
-
-
-
-
+    jugarDeNuevo.classList.remove('hide')
+    jugarDeNuevo.addEventListener('click', replay)
 
 }
 
+function replay(){
 
-    // FIRST CALL
-if (gameStatus.fase == 'start'){
-    start()
+    jugarDeNuevo.classList.add('hide')
+    gameStatus.fase = 'start'
+    gameStatus.firstChoice = ''
+    gameStatus.secondChoice = ''
+    gameStatus.prizeDoor = game.randomDoor()
+    gameStatus.showDoor = ''
+
+    door1.classList = 'door doorSkl'
+    door2.classList = 'door doorSkl'
+    door3.classList = 'door doorSkl'
+
+    jugarDeNuevo.removeEventListener('click', replay)
+
+    roundResultL1.innerHTML = ''
+    roundResultL2.innerHTML = ''
+    youWin.classList = "hide billboard win"
+    youLose.classList = "hide billboard lose"
+    roundResult.classList = 'round-result hide'
+    
+    messagesMessage.innerHTML = message.initial
+    played.innerHTML = scores.plays
+    won.innerHTML = scores.wins
+    lost.innerHTML = scores.loses
+    
+    door1.addEventListener('click', firstChoiceDoor1)
+    door2.addEventListener('click', firstChoiceDoor2)
+    door3.addEventListener('click', firstChoiceDoor3)
 }
+
+
+// FIRST CALL
+start()
 

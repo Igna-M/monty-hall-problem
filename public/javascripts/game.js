@@ -3,8 +3,8 @@ const game = {
         return Math.floor(Math.random() * 3) + 1;
         
     },
+    
     randomBool: () => {
-        console.log('Boolean');
         return Math.floor(Math.random() * 2) + 1;
     },
 
