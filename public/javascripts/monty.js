@@ -1,5 +1,3 @@
-// window.addEventListener("load", () => {
-
 import game from './game.js'
 
 let message = {
@@ -16,7 +14,7 @@ let message = {
 
 
 let gameStatus = {
-    fase: 'start', // 'firstChoice' // 'secondChoice' // 'result' // 'endAllGames'
+    fase: 'start',
     firstChoice: '',
     secondChoice: '',
     prizeDoor: game.randomDoor(),
@@ -29,7 +27,6 @@ let scores = {
     wins: 0,
     loses: 0
 }
-
 
 let door1 = document.getElementById("door1")
 let door2 = document.getElementById("door2")
@@ -47,8 +44,6 @@ let played = document.getElementById("played")
 let won = document.getElementById("won")
 let lost = document.getElementById("lost")
 let jugarDeNuevo = document.getElementById("jugarDeNuevo")
-
-
 
 
 function removeDoorsListeners(){
@@ -116,10 +111,7 @@ let firstChoice = () => {
                 insertMessage2.innerHTML = message.show2
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 3'
                 door2.classList.remove("door")
-                door2.classList.add("empty-door")
-                
-                // door2.classList = "hide"
-                
+                door2.classList.add("empty-door")               
                 gameStatus.showDoor = 2;
                 return secondChoice();
             } else if (bool == 2){
@@ -127,9 +119,6 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 2'
                 door3.classList.remove("door")
                 door3.classList.add("empty-door")
-
-                // door3.classList = "hide"
-                
                 gameStatus.showDoor = 3
                 return secondChoice();
             } 
@@ -139,9 +128,6 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 2'
                 door3.classList.remove("door")
                 door3.classList.add("empty-door")
-                
-                // door3.classList = "hide"
-
                 gameStatus.showDoor = 3
                 return secondChoice();
             } else if (gameStatus.prizeDoor == 3){
@@ -149,9 +135,6 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 3'
                 door2.classList.remove("door")
                 door2.classList.add("empty-door")
-
-                // door2.classList = "hide"
-
                 gameStatus.showDoor = 2
                 return secondChoice();
             }
@@ -165,8 +148,6 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 2 y 3'
                 door1.classList.remove("door")
                 door1.classList.add("empty-door")
-
-                // door1.classList = "hide"
                 gameStatus.showDoor = 1
                 secondChoice()
             } else if (bool == 2){
@@ -174,8 +155,6 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 2'
                 door3.classList.remove("door")
                 door3.classList.add("empty-door")
-
-                // door3.classList = "hide"
                 gameStatus.showDoor = 3
                 secondChoice()
             } 
@@ -185,8 +164,6 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 2'
                 door3.classList.remove("door")
                 door3.classList.add("empty-door")
-
-                // door3.classList = "hide"
                 gameStatus.showDoor = 3
                 secondChoice()
             } else if (gameStatus.prizeDoor == 3){
@@ -194,8 +171,6 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 2 y 3'
                 door1.classList.remove("door")
                 door1.classList.add("empty-door")
-
-                // door1.classList = "hide"
                 gameStatus.showDoor = 1
                 secondChoice()
             }
@@ -209,16 +184,12 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 2 y 3'
                 door1.classList.remove("door")
                 door1.classList.add("empty-door")
-
-                // door1.classList = "hide"
                 gameStatus.showDoor = 1
             } else if (bool == 2){
                 insertMessage2.innerHTML = message.show2
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 3'
                 door2.classList.remove("door")
                 door2.classList.add("empty-door")
-
-                // door2.classList = "hide"
                 gameStatus.showDoor = 2
                 secondChoice()
             } 
@@ -228,8 +199,6 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 1 y 3'
                 door2.classList.remove("door")
                 door2.classList.add("empty-door")
-
-                // door2.classList = "hide"
                 gameStatus.showDoor = 2
                 secondChoice()
             } else if (gameStatus.prizeDoor == 2){
@@ -237,8 +206,6 @@ let firstChoice = () => {
                 insertMessage3.innerHTML = 'Vuelve a elegir entre las puertas 2 y 3'
                 door1.classList.remove("door")
                 door1.classList.add("empty-door")
-
-                // door1.classList = "hide"
                 gameStatus.showDoor = 1
                 secondChoice()
             }
