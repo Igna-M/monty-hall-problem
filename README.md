@@ -1,6 +1,6 @@
 ### El problema Monty Hall
 
-![“Let´s make a deal](https://github.com/Igna-M/monty-hall-problem/blob/tree/master/public/images/monty_hall.jpeg)
+![“Let´s make a deal](https://github.com/Igna-M/monty-hall-problem/blob/master/public/images/monty_hall.jpeg)
 
 Imaginemos que llegas a la final de un concurso televisivo. El presentador te para frente a tres puertas (cerradas, claro) y te explica:
 “Detrás de una de estas tres puertas, hay un auto de alta gama. En las otras dos, no hay nada. Elige tu puerta”
